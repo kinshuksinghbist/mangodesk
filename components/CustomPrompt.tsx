@@ -68,9 +68,7 @@ export default function CustomPrompt({ prompt, onPromptChange }: CustomPromptPro
       )}
 
       <div className="space-y-2">
-        <label htmlFor="custom-prompt" className="block text-sm font-medium text-gray-700">
-          Describe how you want the AI to summarize your meeting
-        </label>
+        
         <textarea
           id="custom-prompt"
           value={prompt}
@@ -90,14 +88,6 @@ export default function CustomPrompt({ prompt, onPromptChange }: CustomPromptPro
         </div>
       </div>
 
-      {!prompt && (
-        <div className="p-3 bg-blue-50 border border-blue-200 rounded-lg">
-          <p className="text-sm text-blue-800">
-            💡 <strong>Tip:</strong> Custom instructions help the AI generate more relevant summaries. 
-            Try specifying the format, audience, or focus areas you need.
-          </p>
-        </div>
-      )}
     </div>
   )
 }

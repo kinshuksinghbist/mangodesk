@@ -168,13 +168,6 @@ export default function EmailShare({ summary }: EmailShareProps) {
         </button>
       </div>
 
-      {/* Info */}
-      <div className="p-3 bg-blue-50 border border-blue-200 rounded-lg">
-        <p className="text-sm text-blue-800">
-          📧 <strong>Note:</strong> The summary will be included in the email body. 
-          Make sure to configure your email settings in the environment variables.
-        </p>
-      </div>
     </div>
   )
 }
