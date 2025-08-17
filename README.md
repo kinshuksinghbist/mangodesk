@@ -89,11 +89,6 @@ A streamlined AI-powered web application that automatically generates structured
    - Select "Mail" and generate a password
    - Use this password in `SMTP_PASS`
 
-### Other Providers
-- **Outlook**: Use `smtp-mail.outlook.com` with port 587
-- **Yahoo**: Use `smtp.mail.yahoo.com` with port 587
-- **Custom SMTP**: Use your provider's SMTP settings
-
 ## Usage
 
 ### Basic Workflow
@@ -113,7 +108,7 @@ A streamlined AI-powered web application that automatically generates structured
 
 - `POST /api/generate-summary` - Generate AI summary from transcript
 - `POST /api/send-email` - Send summary via email
-- `GET /api/debug-env` - Debug environment variables
+- `GET /api/debug-env` - Debug environment variables(used during dev)
 
 ## Development
 
