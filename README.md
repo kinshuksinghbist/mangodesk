@@ -39,7 +39,7 @@ A streamlined AI-powered web application that automatically generates structured
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/kinshuksinghbist/mangodesk.git
    cd mangodesk-meeting-summarizer
    ```
 
@@ -221,15 +221,3 @@ For issues and questions:
 - **API Optimization**: Improved API routes for better performance
 - **Error Handling**: Enhanced error handling and user feedback
 - **Code Organization**: Better component structure and separation of concerns
-
-## Roadmap
-
-- [ ] Multiple AI model support
-- [ ] Summary templates and themes
-- [ ] Team collaboration features
-- [ ] Integration with calendar apps
-- [ ] Export to various formats (PDF, Word, etc.)
-- [ ] Meeting recording upload support
-- [ ] Advanced analytics and insights
-- [ ] Dark mode support
-- [ ] Keyboard shortcuts for power users
