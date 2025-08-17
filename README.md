@@ -1,32 +1,33 @@
 # MangoDesk - AI Meeting Notes Summarizer
 
-An AI-powered web application that automatically generates structured summaries from meeting transcripts and allows easy sharing via email.
+A streamlined AI-powered web application that automatically generates structured summaries from meeting transcripts and allows easy sharing via email. Built with a clean, simplified interface for optimal user experience.
 
 ## Features
 
-- **📝 Transcript Upload**: Drag & drop or paste meeting transcripts
-- **🤖 AI-Powered Summarization**: Uses OpenAI GPT to generate intelligent summaries
-- **⚙️ Custom Instructions**: Specify how you want the AI to summarize (executive format, action items, etc.)
-- **✏️ Editable Summaries**: Review and edit generated summaries before sharing
-- **📧 Email Sharing**: Send summaries directly to team members via email
-- **🎨 Modern UI**: Beautiful, responsive interface built with Next.js and Tailwind CSS
+- **📝 Simple Transcript Upload**: Drag & drop or paste meeting transcripts with a clean interface
+- **🤖 AI-Powered Summarization**: Uses Groq (Llama 3.1 8B) for intelligent, fast summaries
+- **⚙️ Smart Preset Prompts**: Choose from optimized preset instructions or add custom ones
+- **✏️ Inline Editing**: Edit summaries directly in the interface with a streamlined editor
+- **📧 Email Sharing**: Send summaries to multiple recipients with a simple form
+- **🎨 Clean, Modern UI**: Minimalist design built with Next.js and Tailwind CSS
+- **📱 Responsive Design**: Works seamlessly on desktop and mobile devices
 
 ## How It Works
 
-1. **Upload Transcript**: Paste or upload your meeting transcript
-2. **Custom Instructions**: Add specific instructions for the AI (optional)
-3. **Generate Summary**: Click to create an AI-powered summary
-4. **Edit & Review**: Make any necessary adjustments to the summary
+1. **Upload Transcript**: Drag & drop or paste your meeting transcript
+2. **Choose Instructions**: Select from preset prompts or write custom instructions
+3. **Generate Summary**: Click to create an AI-powered summary in seconds
+4. **Edit & Review**: Make adjustments inline with the simplified editor
 5. **Share**: Send the final summary to team members via email
 
 ## Tech Stack
 
 - **Frontend**: Next.js 14, React 18, TypeScript
-- **Styling**: Tailwind CSS
-- **AI**: Groq (Llama 3.1 8B)
-- **Email**: Nodemailer
-- **UI Components**: Lucide React icons
-- **Notifications**: React Hot Toast
+- **Styling**: Tailwind CSS with custom design system
+- **AI**: Groq (Llama 3.1 8B) - Fast and efficient language model
+- **Email**: Nodemailer for reliable email delivery
+- **UI Components**: Lucide React icons for consistent iconography
+- **Notifications**: React Hot Toast for user feedback
 
 ## Prerequisites
 
@@ -52,14 +53,14 @@ An AI-powered web application that automatically generates structured summaries 
    cp env.example .env.local
    ```
    
-       Edit `.env.local` with your actual credentials:
-    ```env
-    GROQ_API_KEY=your_groq_api_key_here
-    SMTP_HOST=smtp.gmail.com
-    SMTP_PORT=587
-    SMTP_USER=your_email@gmail.com
-    SMTP_PASS=your_app_password_here
-    ```
+   Edit `.env.local` with your actual credentials:
+   ```env
+   GROQ_API_KEY=your_groq_api_key_here
+   SMTP_HOST=smtp.gmail.com
+   SMTP_PORT=587
+   SMTP_USER=your_email@gmail.com
+   SMTP_PASS=your_app_password_here
+   ```
 
 4. **Run the development server**
    ```bash
@@ -97,21 +98,22 @@ An AI-powered web application that automatically generates structured summaries 
 
 ### Basic Workflow
 1. **Upload Transcript**: Drag & drop a .txt file or paste text directly
-2. **Add Instructions**: Use preset prompts or write custom instructions
+2. **Select Instructions**: Choose from preset prompts or write custom instructions
 3. **Generate**: Click "Generate Summary" to create the AI summary
-4. **Edit**: Review and modify the summary as needed
-5. **Share**: Send via email to team members
+4. **Edit**: Use the inline editor to modify the summary as needed
+5. **Share**: Send via email to multiple team members
 
-### Custom Instructions Examples
-- "Summarize in bullet points for executives"
-- "Highlight only action items and next steps"
-- "Focus on technical specifications and requirements"
-- "Create a stakeholder-friendly summary"
+### Preset Instructions
+- **Executive Summary**: Bullet-point format highlighting key decisions and outcomes
+- **Action Items**: Focus on tasks, assignments, and next steps with ownership
+- **Technical Details**: Technical specifications, requirements, and implementation details
+- **Stakeholder Update**: High-level summary suitable for business stakeholders
 
 ## API Endpoints
 
+- `POST /api/generate-summary` - Generate AI summary from transcript
 - `POST /api/send-email` - Send summary via email
-- Uses Nodemailer for SMTP email delivery
+- `GET /api/debug-env` - Debug environment variables
 
 ## Development
 
@@ -125,20 +127,19 @@ An AI-powered web application that automatically generates structured summaries 
 ```
 ├── app/                    # Next.js app directory
 │   ├── api/               # API routes
+│   │   ├── generate-summary/   # AI summary generation
+│   │   ├── send-email/         # Email sending
+│   │   └── debug-env/          # Environment debugging
 │   ├── globals.css        # Global styles
 │   ├── layout.tsx         # Root layout
 │   └── page.tsx           # Home page
 ├── components/             # React components
-│   ├── Header.tsx         # Application header
-│   ├── TranscriptUpload.tsx # Transcript upload component
-│   ├── CustomPrompt.tsx   # Custom instructions input
-│   ├── SummaryDisplay.tsx # Summary display and editing
+│   ├── TranscriptUpload.tsx # Transcript upload with drag & drop
+│   ├── CustomPrompt.tsx   # Custom instructions with presets
+│   ├── SummaryDisplay.tsx # Summary display and inline editing
 │   └── EmailShare.tsx     # Email sharing component
-├── app/api/                # API routes
-│   ├── generate-summary/   # AI summary generation
-│   ├── send-email/         # Email sending
-│   └── debug-env/          # Environment debugging
-└── public/                 # Static assets
+├── public/                 # Static assets
+└── styles/                 # Additional styling
 ```
 
 ## Customization
@@ -162,8 +163,8 @@ Edit `app/api/generate-summary/route.ts` to customize the AI prompts and paramet
 
 ```typescript
 const completion = await groq.chat.completions.create({
-  model: "llama3-8b-8192", // Change to other Groq models for different quality
-  max_tokens: 1500, // Increase token limit
+  model: "llama3-8b-8192", // Change to other Groq models
+  max_tokens: 1500, // Adjust token limit
   temperature: 0.5, // Adjust creativity level
   // ... other options
 })
@@ -206,6 +207,21 @@ For issues and questions:
 - Check the troubleshooting section above
 - Verify your environment variables are set correctly
 
+## Recent Updates
+
+### UI Simplifications
+- **Streamlined Interface**: Cleaner, more focused design with better spacing
+- **Improved Workflow**: Simplified step-by-step process for better user experience
+- **Enhanced Editing**: Inline summary editing with a more intuitive interface
+- **Better Mobile Experience**: Responsive design improvements for mobile devices
+- **Preset Prompts**: Added smart preset instructions for common use cases
+
+### Technical Improvements
+- **Groq Integration**: Switched to Groq for faster, more efficient AI processing
+- **API Optimization**: Improved API routes for better performance
+- **Error Handling**: Enhanced error handling and user feedback
+- **Code Organization**: Better component structure and separation of concerns
+
 ## Roadmap
 
 - [ ] Multiple AI model support
@@ -215,3 +231,5 @@ For issues and questions:
 - [ ] Export to various formats (PDF, Word, etc.)
 - [ ] Meeting recording upload support
 - [ ] Advanced analytics and insights
+- [ ] Dark mode support
+- [ ] Keyboard shortcuts for power users
